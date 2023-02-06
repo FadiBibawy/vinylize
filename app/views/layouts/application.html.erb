@@ -8,12 +8,21 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%# <%= javascript_include_tag :defaults %>
   </head>
 
   <body>
+    <%= button_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+    <% if user_signed_in? %>
+      <h2>Hi <%= current_user.email %> </h2>
+    <% end %>
   </body>
 </html>
