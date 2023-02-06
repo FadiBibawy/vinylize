@@ -53,4 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_161142) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_vinyls_on_user_id"
   end
+
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "vinyls"
+  add_foreign_key "vinyls", "users"
 end
