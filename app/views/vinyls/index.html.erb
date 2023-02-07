@@ -1,0 +1,11 @@
+<h2>hell0</h2>
+
+<h2>Movie Lists</h2>
+  <ul>
+    <% @vinyls.each do |vinyl| %>
+      <li>
+        <%= link_to vinyl.record_title, vinyl_path(vinyl) %>
+      </li>
+    <% end %>
+    <%= link_to 'Create a list', new_vinyl_path %>
+  </ul>
