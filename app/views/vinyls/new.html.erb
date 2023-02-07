@@ -1,0 +1,11 @@
+<h3>Create a new Vinyl</h3>
+  <%= simple_form_for @vinyl do |f| %>
+  <%= f.input :artist, placeholder: "Name of the artist" %>
+  <%= f.input :record_title, placeholder: "Title of the record" %>
+  <%= f.input :release_year, placeholder: "Release year" %>
+  <%= f.input :label, placeholder: "Label" %>
+  <%= f.input :genre, placeholder: "Genre" %>
+  <%= f.input :quality, placeholder: "Quality" %>
+  <%= f.input :price_per_day, placeholder: "Price per day" %>
+  <%= f.submit%>
+<% end %>
