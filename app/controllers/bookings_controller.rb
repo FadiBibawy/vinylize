@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.vinyl = @vinyl
+    @booking.user = current_user
     @booking.save
     redirect_to dashboard_path(@user)
   end
