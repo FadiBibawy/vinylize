@@ -18,7 +18,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-
     @booking = Booking.new(booking_params)
     if compare_date
       @vinyl.available = false
@@ -69,11 +68,21 @@ class BookingsController < ApplicationController
     start_chosen_date = Date.new(params[:booking]["start_date(1i)"].to_i, params[:booking]["start_date(2i)"].to_i, params[:booking]["start_date(3i)"].to_i)
     end_chosen_date = Date.new(params[:booking]["end_time(1i)"].to_i, params[:booking]["end_time(2i)"].to_i, params[:booking]["end_time(3i)"].to_i)
 
-    @vinyl.bookings.each do |booking|
+    sorted_bookings = @vinyl.bookings.sort_by { |booking| booking.start_date }
 
-      start_booked_date = @vinyl.bookings[0].start_date
-      end_booked_date = @vinyl.bookings[0].end_time
+    return true if end_chosen_date < sorted_bookings.first.start_date
+    return true if start_chosen_date > sorted_bookings.last.end_time
 
-      (start_chosen_date > end_booked_date) || (end_chosen_date < start_booked_date)
+    sorted_bookings.each_with_index do |booking, i|
+      # start_booked_date = booking.start_date
+      end_booked_date = booking.end_time
+
+      unless i == sorted_bookings.length - 1
+        (start_chosen_date > end_booked_date) && (end_chosen_date < sorted_bookings[i + 1].start_date)
+      end
+      # (start_chosen_date > end_booked_date) || (end_chosen_date < start_booked_date)
+    end
+
+    false
   end
 end
