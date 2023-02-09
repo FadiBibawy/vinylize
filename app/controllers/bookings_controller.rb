@@ -1,5 +1,8 @@
 class BookingsController < ApplicationController
   # /dashboard
+  before_action :set_booking, only: :destroy
+  before_action :set_vinyl, only: [:new, :create]
+
   def index
     @bookings = Booking.all
   end
@@ -11,16 +14,17 @@ class BookingsController < ApplicationController
 
   # /vinyls/:id/bookings/new   GET
   def new
-    @vinyl = vinyl.find(params[:booking_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @vinyl.available = false
     @booking.vinyl = @vinyl
     @booking.user = current_user
     @booking.save
-    redirect_to dashboard_path(@user)
+
+    redirect_to @vinyl
   end
 
   def update
@@ -39,7 +43,15 @@ class BookingsController < ApplicationController
 
   private
 
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def set_vinyl
+    @vinyl = Vinyl.find(params[:vinyl_id])
+  end
+
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_time)
   end
 end
