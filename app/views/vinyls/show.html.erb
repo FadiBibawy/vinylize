@@ -5,15 +5,20 @@
   </h1>
   <h4>belongs to: <strong><%= @vinyl.user.email %></strong></h4>
 
-  <p>is the vinyl available?
+  <% @vinyl.bookings.each do |booking| %>
+    <p>booking <%= booking.id %></p>
+    <p>start = <%= booking.start_date %></p>
+    <p>end = <%= booking.end_time %></p>
+    <hr>
+  <% end %>
 
-    <% if @vinyl.available? %>
-      Yes!
-      <p><%= link_to "book this Vinyl", new_vinyl_booking_path(@vinyl)%></p>
 
-    <% else %>
-      No!!!
-    <% end %>
+
+
+
+  <p><%= link_to "book this Vinyl", new_vinyl_booking_path(@vinyl)%></p>
+
+
    </p>
 
 </div>
