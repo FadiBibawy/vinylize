@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :vinyls do
-    resources :bookings, only: [:index, :new, :create]
+    resources :bookings, only: [:new, :create]
   end
 
   resources :bookings, only: :destroy
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # resources :vinyls do
   #   resoucres :bookings
   # end
+  # get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 end
 
 

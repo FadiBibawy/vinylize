@@ -6,7 +6,7 @@
       <% @vinyls.each do |vinyl| %>
         <li>
           <strong><%= link_to vinyl.record_title, vinyl_path(vinyl) %></strong>
-          <%= link_to "book this Vinyl"%>
+          <%= link_to "book this Vinyl", new_vinyl_booking_path(vinyl)%>
         </li>
       <% end %>
     </ul>
