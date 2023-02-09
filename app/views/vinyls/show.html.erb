@@ -1,0 +1,9 @@
+
+<div class="container">
+  <h1>
+    <strong><%= @vinyl.record_title %></strong>
+  </h1>
+  <h4>belongs to: <strong><%= @vinyl.user.email %></strong></h4>
+
+  <p><%= link_to "book this Vinyl", new_vinyl_booking_path(@vinyl)%></p>
+</div>

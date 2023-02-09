@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vinylize</title>
+    <title>Vinylize 💿</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -18,9 +18,7 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= button_to('Logout', destroy_user_session_path, method: :delete) %>
-    <% end %>
+
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
@@ -30,8 +28,6 @@
 
     <%= yield %>
 
-    <% if user_signed_in? %>
-      <h2>Hi <%= current_user.email %> </h2>
-    <% end %>
+
   </body>
 </html>

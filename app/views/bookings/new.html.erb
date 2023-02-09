@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>new Booking for <%= Vinyl.find(@vinyl).record_title %></h3>
+    <%= simple_form_for @vinyl do |f| %>
+    <%= f.input :start_date, as: :date%>
+    <%= f.input :end_date, as: :date%>
+
+    <%= f.submit 'book', class: "btn btn-default btn-primary"%>
+  <% end %>
+</div>

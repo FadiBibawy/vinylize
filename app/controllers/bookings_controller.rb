@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 
   # /vinyls/:id/bookings/new   GET
   def new
-    @vinyl = vinyl.find(params[:booking_id])
+    @vinyl = params[:vinyl_id]
     @booking = Booking.new
   end
 
