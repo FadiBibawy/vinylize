@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # resources :vinyls do
   #   resoucres :bookings
   # end
-  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+  get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 end
 
 
