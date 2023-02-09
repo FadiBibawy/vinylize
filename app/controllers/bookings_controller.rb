@@ -20,11 +20,14 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @vinyl.available = false
+    @vinyl.save
     @booking.vinyl = @vinyl
     @booking.user = current_user
-    @booking.save
-
-    redirect_to @vinyl
+    if @booking.save
+      redirect_to @vinyl
+    else
+      render :new
+    end
   end
 
   def update
