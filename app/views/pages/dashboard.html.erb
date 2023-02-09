@@ -1,0 +1,29 @@
+<div>
+<H1>Dashboard</H1>
+<div class="container">
+<ul class="list-group">
+  <% @vinyls.each do |vinyl|%>
+    <li class="list-group-item active"><%= vinyl.record_title %></li>
+    <li class="list-group-item"><%= vinyl.artist %></li>
+    <li class="list-group-item"><%= vinyl.release_year %></li>
+    <li class="list-group-item"><%= vinyl.quality %></li>
+    <li class="list-group-item"><%= vinyl.price_per_day %></li>
+    <li class="list-group-item"><%= vinyl.available %></li>
+    <li class="list-group-item"><%= vinyl.artist %></li>
+  <% end %>
+</ul>
+<br>
+<br>
+<br>
+</div>
+<div class="container">
+<ul class="list-group">
+  <% @bookings.each do |booking| %>
+    <li class="list-group-item active"><%= booking.vinyl.record_title %></li>
+    <li class="list-group-item"><%= booking.start_date %></li>
+    <li class="list-group-item"><%= booking.end_time %></li>
+    <li class="list-group-item"><%= booking.created_at %></li>
+  <% end %>
+</ul>>
+</div>
+</div>
