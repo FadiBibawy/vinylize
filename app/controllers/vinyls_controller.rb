@@ -1,5 +1,4 @@
 class VinylsController < ApplicationController
-
   def index
     @vinyls = Vinyl.all
   end
@@ -28,6 +27,7 @@ class VinylsController < ApplicationController
   end
 
   private
+
   def vinyl_params
     params.require(:vinyl).permit(:artist, :release_year, :record_title, :label, :genre, :quality, :price_per_day)
   end
