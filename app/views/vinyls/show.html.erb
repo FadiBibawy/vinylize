@@ -5,8 +5,8 @@
   </h1>
   <h4>belongs to: <strong><%= @vinyl.user.email %></strong></h4>
 
-  <% @vinyl.bookings.each do |booking| %>
-    <p>booking <%= booking.id %></p>
+  <% @vinyl.bookings.sort_by(&:start_date).each_with_index do |booking, i| %>
+    <p>booking <%= i + 1 %></p>
     <p>start = <%= booking.start_date %></p>
     <p>end = <%= booking.end_time %></p>
     <hr>
