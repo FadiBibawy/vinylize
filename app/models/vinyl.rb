@@ -4,5 +4,6 @@ class Vinyl < ApplicationRecord
   validates :artist, :release_year, :record_title, :price_per_day, :quality, presence: true
 
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
+
 end
