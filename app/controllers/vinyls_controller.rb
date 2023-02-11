@@ -1,10 +1,11 @@
 class VinylsController < ApplicationController
+  before_action :set_vinyl, :exept [:index, :new]
+
   def index
     @vinyls = Vinyl.all
   end
 
   def show
-    @vinyl = Vinyl.find(params[:id])
   end
 
   def new
@@ -23,17 +24,14 @@ class VinylsController < ApplicationController
   end
 
   def edit
-    @vinyl = Vinyl.find(params[:id])
   end
 
   def update
-    @vinyl = Vinyl.find(params[:id])
     @vinyl.update(vinyl_params)
     redirect_to vinyl_path(@vinyl)
   end
 
   def destroy
-    @vinyl = Vinyl.find(params[:id])
     @vinyl.destroy
     redirect_to dashboard_path, status: :see_other
   end
@@ -42,6 +40,10 @@ class VinylsController < ApplicationController
 
   def vinyl_params
     params.require(:vinyl).permit(:artist, :release_year, :record_title, :label, :genre, :quality, :price_per_day)
+  end
+
+  def set_vinyl
+    @vinyl = Vinyl.find(params[:id])
   end
 end
 
