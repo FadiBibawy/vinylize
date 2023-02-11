@@ -3,7 +3,7 @@
   <h1>
     <strong><%= @vinyl.record_title %></strong>
   </h1>
-  <h4>belongs to: <strong><%= @vinyl.user.email %></strong></h4>
+  <h4>belongs to: <strong><%= @vinyl.user.first_name %></strong></h4>
 
   <% @vinyl.bookings.sort_by(&:start_date).each_with_index do |booking, i| %>
     <p>booking <%= i + 1 %></p>
