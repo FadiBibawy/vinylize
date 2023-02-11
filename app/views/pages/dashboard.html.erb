@@ -13,7 +13,8 @@
       <li class="list-group-item"><%= vinyl.price_per_day %></li>
       <li class="list-group-item"><%= vinyl.available %></li>
       <li class="list-group-item"><%= vinyl.artist %></li>
-    <% end %>
+      <li class="list-group-item"><%= link_to "Delete", vinyl_path(vinyl), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
+      <% end %>
   </ul>
     <br>
     <br>
@@ -23,12 +24,14 @@
 
 <div class="container">
 <h4>My Bookings 🧾</h4>
+<th></th>
 <ul class="list-group">
   <% @bookings.each do |booking| %>
     <li class="list-group-item active">Vinyl title: <%= booking.vinyl.record_title %></li>
     <li class="list-group-item">start date: <%= booking.start_date %></li>
     <li class="list-group-item">end date: <%= booking.end_time %></li>
     <li class="list-group-item">total price: <%= booking.total_price %>€</li>
+    <li class="list-group-item"><%= link_to "Delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
   <% end %>
 </ul>
 </div>
