@@ -9,5 +9,4 @@ class PagesController < ApplicationController
     @vinyls = current_user.vinyls
     @bookings = current_user.bookings
   end
-
 end

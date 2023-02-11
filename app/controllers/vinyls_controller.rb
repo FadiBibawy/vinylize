@@ -23,8 +23,9 @@ class VinylsController < ApplicationController
   end
 
   def destroy
+    @vinyl = Vinyl.find(params[:id])
     @vinyl.destroy
-    redirect_to vinyls_path
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
