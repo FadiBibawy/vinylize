@@ -6,12 +6,11 @@
   <h4>My Uploaded Vinyls</h4>
   <ul class="list-group">
     <% @vinyls.each do |vinyl|%>
-      <li class="list-group-item list-group-item-secondary""><%= vinyl.record_title %></li>
+      <li class="list-group-item list-group-item-secondary"> <%= link_to vinyl.record_title, vinyl_path(vinyl)%></li>
       <li class="list-group-item"><%= vinyl.artist %></li>
       <li class="list-group-item"><%= vinyl.release_year %></li>
       <li class="list-group-item"><%= vinyl.quality %></li>
       <li class="list-group-item"><%= vinyl.price_per_day %></li>
-      <li class="list-group-item"><%= vinyl.available %></li>
       <li class="list-group-item"><%= vinyl.artist %></li>
       <li class="list-group-item"><%= link_to "Delete", vinyl_path(vinyl), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %> -- <%= link_to "Edit vinyl", edit_vinyl_path(vinyl), class: "btn btn-warning"  %></li>
       <li class="list-group-item"></li>
