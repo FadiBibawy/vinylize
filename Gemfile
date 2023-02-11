@@ -82,4 +82,4 @@ gem "devise"
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
-# gem 'flatpickr'
+gem 'flatpickr'
