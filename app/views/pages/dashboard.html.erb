@@ -13,7 +13,7 @@
       <li class="list-group-item"><%= vinyl.price_per_day %></li>
       <li class="list-group-item"><%= vinyl.available %></li>
       <li class="list-group-item"><%= vinyl.artist %></li>
-      <li class="list-group-item"><%= link_to "Delete", vinyl_path(vinyl), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
+      <li class="list-group-item"><%= link_to "Delete", vinyl_path(vinyl), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
       <% end %>
   </ul>
     <br>
