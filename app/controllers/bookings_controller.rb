@@ -81,7 +81,7 @@ class BookingsController < ApplicationController
       # start_booked_date = booking.start_date
       end_booked_date = booking.end_time
 
-      if !(i == sorted_bookings.length - 1) && ((@start_chosen_date > end_booked_date) && (@end_chosen_date < sorted_bookings[i + 1].start_date))
+      if (i != sorted_bookings.length - 1) && ((@start_chosen_date > end_booked_date) && (@end_chosen_date < sorted_bookings[i + 1].start_date))
         return true
       end
       # (start_chosen_date > end_booked_date) || (@end_chosen_date < start_booked_date)

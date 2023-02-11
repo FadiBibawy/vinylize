@@ -7,7 +7,10 @@
         <li>
           <div style='margin: 5px'>
             <strong><%= link_to vinyl.record_title, vinyl_path(vinyl) %></strong>
-            <%= link_to "book this Vinyl", new_vinyl_booking_path(vinyl), class: "btn btn-success"%>
+            <%= link_to "Book this Vinyl", new_vinyl_booking_path(vinyl), class: "btn btn-success"%>
+            <%= link_to "Delete", vinyl_path(vinyl),
+            data: { turbo_method: :delete, turbo_confirm: 'are you sure you want to delete this vinyl?' },
+            class: "btn btn-danger"%>
             <hr>
           </div>
         </li>
