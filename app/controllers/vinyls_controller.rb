@@ -1,5 +1,5 @@
 class VinylsController < ApplicationController
-  before_action :set_vinyl, except: [:index, :new]
+  before_action :set_vinyl, except: [:index, :new, :create]
 
   def index
     @vinyls = Vinyl.all
@@ -17,7 +17,7 @@ class VinylsController < ApplicationController
     @vinyl.user = current_user
     @vinyl.available = true
     if @vinyl.save
-      redirect_to vinyls_path
+      redirect_to vinyls_path, status: :see_other
     else
       render :new
     end

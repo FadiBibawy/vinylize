@@ -6,6 +6,6 @@
   <p><%= link_to "All Vinyls", vinyls_path%></p>
 
   <% if user_signed_in? %>
-    <h4>Hi <strong><%= current_user.first_name.capitalize %></strong> </h4>
+    <h4>Hi <strong><%= current_user.first_name %></strong> </h4>
   <% end %>
 </div>
