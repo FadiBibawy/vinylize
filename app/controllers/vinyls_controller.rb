@@ -1,5 +1,5 @@
 class VinylsController < ApplicationController
-  before_action :set_vinyl, :exept [:index, :new]
+  before_action :set_vinyl, :except [:index, :new]
 
   def index
     @vinyls = Vinyl.all
