@@ -9,10 +9,6 @@
     <p>booking <%= i + 1 %></p>
     <p>start = <%= booking.start_date %></p>
     <p>end = <%= booking.end_time %></p>
-    <%= link_to "Edit vinyl", edit_vinyl_path(@vinyl), class: "btn btn-warning" %>
-    <%= link_to "Delete vinyl", vinyl_path(@vinyl),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: "btn btn-danger" %>
     <hr>
   <% end %>
 
