@@ -22,6 +22,16 @@ class VinylsController < ApplicationController
     end
   end
 
+  def edit
+    @vinyl = Vinyl.find(params[:id])
+  end
+
+  def update
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.update(vinyl_params)
+    redirect_to vinyl_path(@vinyl)
+  end
+
   def destroy
     @vinyl = Vinyl.find(params[:id])
     @vinyl.destroy
