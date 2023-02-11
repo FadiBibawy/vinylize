@@ -5,8 +5,11 @@
     <ul>
       <% @vinyls.each do |vinyl| %>
         <li>
-          <strong><%= link_to vinyl.record_title, vinyl_path(vinyl) %></strong>
-          <%= link_to "book this Vinyl", new_vinyl_booking_path(vinyl)%>
+          <div style='margin: 5px'>
+            <strong><%= link_to vinyl.record_title, vinyl_path(vinyl) %></strong>
+            <%= link_to "book this Vinyl", new_vinyl_booking_path(vinyl), class: "btn btn-success"%>
+            <hr>
+          </div>
         </li>
       <% end %>
     </ul>
