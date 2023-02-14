@@ -10,6 +10,7 @@
       <li class="list-group-item">genre: <%= @vinyl.genre %></li>
       <li class="list-group-item">quality: <%= @vinyl.quality %></li>
       <li class="list-group-item">price_per_day: <%= @vinyl.price_per_day %></li>
+      <li class="list-group-item"><%= cl_image_tag @vinyl.photo.key, height: 300, width: 400, crop: :fill %></li>
     </ul>
 
     <div class="d-flex flex-row" style='width: text'>
