@@ -17,7 +17,7 @@ class VinylsController < ApplicationController
     @vinyl.user = current_user
     @vinyl.available = true
     if @vinyl.save
-      redirect_to vinyls_path, status: :see_other
+      redirect_to vinyls_path, status: :unprocessable_entity
     else
       render :new
     end
@@ -28,7 +28,7 @@ class VinylsController < ApplicationController
 
   def update
     @vinyl.update(vinyl_params)
-    redirect_to vinyl_path(@vinyl)
+    redirect_to vinyl_path(@vinyl), status: :unprocessable_entity
   end
 
   def destroy
@@ -39,7 +39,8 @@ class VinylsController < ApplicationController
   private
 
   def vinyl_params
-    params.require(:vinyl).permit(:artist, :release_year, :record_title, :label, :genre, :quality, :price_per_day)
+    params.require(:vinyl).permit(:artist, :release_year, :record_title,
+                                  :label, :genre, :quality, :price_per_day, :photo)
   end
 
   def set_vinyl

@@ -59,8 +59,6 @@ group :development, :test do
   gem "dotenv-rails"
 
 end
-# for API keys
-gem "dotenv-rails", groups: [:development, :test]
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -85,3 +83,5 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'flatpickr'
+# image uplaod service
+gem "cloudinary"
