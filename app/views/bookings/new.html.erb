@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>new Booking for <%= @vinyl.record_title %></h3>
+    <%= simple_form_for [@vinyl, @booking], authenticity_token: true  do |f| %>
+    <%= f.input :start_date, as: :date%>
+    <%= f.input :end_time, as: :date%>
+
+    <%= f.submit 'book', class: "btn btn-default btn-primary"%>
+  <% end %>
+</div>
