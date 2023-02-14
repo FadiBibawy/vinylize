@@ -17,9 +17,9 @@ class VinylsController < ApplicationController
     @vinyl.user = current_user
     @vinyl.available = true
     if @vinyl.save
-      redirect_to vinyls_path, status: :unprocessable_entity
+      redirect_to vinyls_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
