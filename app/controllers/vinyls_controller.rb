@@ -42,6 +42,7 @@ class VinylsController < ApplicationController
   end
 
   def destroy
+    raise
     @vinyl.destroy
     redirect_to vinyls_path, status: :see_other
   end
