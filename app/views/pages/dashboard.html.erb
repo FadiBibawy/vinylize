@@ -27,11 +27,11 @@
 <th></th>
 <ul class="list-group">
   <% @bookings.each do |booking| %>
-    <li class="list-group-item active">Vinyl title: <%= booking.vinyl.record_title %></li>
+    <li class="list-group-item active">Vinyl title: <strong class="text-light bg-dark"><%= link_to booking.vinyl.record_title, vinyl_path(booking.vinyl)%></strong> </li>
     <li class="list-group-item">start date: <%= booking.start_date %></li>
     <li class="list-group-item">end date: <%= booking.end_time %></li>
     <li class="list-group-item">total price: <%= booking.total_price %>€</li>
-    <li class="list-group-item"><%= link_to "Delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %></li>
+    <li class="list-group-item"><%= button_to("Delete", booking_path(booking), method: :delete, class: 'btn btn-danger') %></li>
   <% end %>
 </ul>
 </div>
