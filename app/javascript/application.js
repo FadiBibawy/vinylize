@@ -2,8 +2,7 @@
 
 //= require jquery
 //= require bootstrap-sprockets
-//= require flatpickr
-
+//= require_tree .
 
 import "@hotwired/turbo-rails"
 import "./controllers"

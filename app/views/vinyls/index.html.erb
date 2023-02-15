@@ -1,4 +1,6 @@
 
+=======
+<%# <h2>hello</h2> %>
 <div class="container my-3">
   <%= form_with url: vinyls_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
@@ -12,34 +14,35 @@
 
 
 
-  <h2 class="m-3 text-center">List of all Vinyls</h2>
+<h2 class="m-3 text-center">List of all Vinyls</h2>
   <div class="container">
-        <%= link_to 'Offer a new Vinyl', new_vinyl_path %>
-
-
-    <%= link_to 'Offer a new Vinyl', new_vinyl_path, class: "btn btn-primary mb-3"  %>
+ 
+  <%= link_to 'Offer a new Vinyl', new_vinyl_path, class: "btn btn-primary mb-3"  %>
     <% if @vinyls.empty? %>
       <p class="my-5 text-danger">There is no Vinyl matches your search!</p>
     <% end %>
 
-    <div class="row d-flex justify-content-around">
+    <div class="row d-flex justify-content-between">
       <% @vinyls.each do |vinyl| %>
 
-        <div class="card m-2 col-lg-3 col-md-6">
-          <div class="card-body">
+          <div class="card col-lg-4 col-md-6">
+            <div class="card-body">
             <h5 class="card-title"><%= link_to vinyl.record_title, vinyl_path(vinyl) %></h5>
             <% if vinyl.photo.key %>
               <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "card-img-top" %>
             <% end %>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-            <%= link_to "Book Vinyl", new_vinyl_booking_path(vinyl), class: "btn btn-success shadow rounded"%>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-            <%= button_to("Delete vinyl", vinyl_path(vinyl),
-            method: :delete, turbo_confirm: "Are you sure?",
-            class: "btn btn-danger shadow rounded") %>
+              <%= link_to "Book Vinyl", new_vinyl_booking_path(vinyl), class: "btn btn-success shadow rounded"%>
+              
+            <div class="col-3 my-1">
+              <%= button_to("Delete vinyl", vinyl_path(vinyl),
+              method: :delete, turbo_confirm: "Are you sure?",
+              class: "btn btn-danger shadow rounded") %>
+            </div>
+            <hr>
           </div>
-        </div>
       <% end %>
-    </div>
-  </div>
+</div>
+

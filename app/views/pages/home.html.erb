@@ -1,11 +1,23 @@
-<%# <h1>Pages#home</h1> %>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dsfym0a0h/image/upload/v1676398147/Vinyl_exportpng_imtdam.png);">
+  <div class="container">
+    <div>
+    </div>
+  </div>
+</div>
 <div class="container">
-  <H2>Welcome to our <strong>VINYLIZE</strong> World 💿</H2>
+<div class="outer-div">
+	<div class="inner-div">
+  <div class="vertical-center">
+<a class= "btn btn-flat" "center" href="<%= vinyls_path %>" >All Vinyls</a>
+</div>
+</div>
+</div>
+
+  <h2>Welcome to our <strong>VINYLIZE</strong> World 💿</h2>
 
   <p><%= link_to "All Vinyls", vinyls_path%></p>
 
   <% if user_signed_in? %>
-    <h4>Hi <%= current_user.email %> </h4>
+    <h4>Hi <strong><%= current_user.first_name %></strong> </h4>
   <% end %>
 </div>
