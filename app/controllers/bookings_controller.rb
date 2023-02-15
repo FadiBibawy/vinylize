@@ -67,10 +67,10 @@ class BookingsController < ApplicationController
   end
 
   def compare_date
-    @start_chosen_date = Date.new(params[:booking]["start_date(1i)"].to_i, params[:booking]["start_date(2i)"].to_i,
-                                  params[:booking]["start_date(3i)"].to_i)
-    @end_chosen_date = Date.new(params[:booking]["end_time(1i)"].to_i, params[:booking]["end_time(2i)"].to_i,
-                                params[:booking]["end_time(3i)"].to_i)
+    @start_chosen_date = Date.new(params[:booking]["start_date"].split("-")[0].to_i, params[:booking]["start_date"].split("-")[1].to_i,
+                                  params[:booking]["start_date"].split("-")[2].to_i)
+    @end_chosen_date = Date.new(params[:booking]["end_time"].split("-")[0].to_i, params[:booking]["end_time"].split("-")[1].to_i,
+                                params[:booking]["end_time"].split("-")[2].to_i)
 
     sorted_bookings = @vinyl.bookings.sort_by(&:start_date)
     return true if sorted_bookings.empty?

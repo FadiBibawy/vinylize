@@ -3,3 +3,64 @@
 .container {
   margin-left: 40px;
 }
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 30% 0;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #824218;
+  transition: background 0.3s ease;
+
+}
+
+.btn-flat:hover {
+  background: #82431860;
+  color: white;
+}
+
+.vertical-center {
+  margin: 50;
+  position: absolute;
+  top: 90%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.outer-div {
+  padding: 30px;
+  text-align: center;
+}
+
+.inner-div {
+  display: inline-block;
+  padding: 50px;
+}
