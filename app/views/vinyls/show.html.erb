@@ -3,8 +3,29 @@
   <h1>
     <strong><%= @vinyl.record_title %></strong>
   </h1>
-  <h4>belongs to: <strong><%= @vinyl.user.email %></strong></h4>
+    <ul class="list-group">
+      <li class="list-group-item">release_year: <%= @vinyl.release_year %></li>
+      <li class="list-group-item">artist: <%= @vinyl.artist %></li>
+      <li class="list-group-item">label: <%= @vinyl.label %></li>
+      <li class="list-group-item">genre: <%= @vinyl.genre %></li>
+      <li class="list-group-item">quality: <%= @vinyl.quality %></li>
+      <li class="list-group-item">price_per_day: <%= @vinyl.price_per_day %></li>
+      <% if @vinyl.photo.key %>
+        <li class="list-group-item"><%= cl_image_tag @vinyl.photo.key, height: 300, width: 400, crop: :fill %></li>
+      <% end %>
+    </ul>
 
+    <div class="d-flex flex-row" style='width: text'>
+      <%= link_to "Edit vinyl", edit_vinyl_path(@vinyl), class: "btn btn-warning p-2 m-2" %>
+      <%= button_to("Delete vinyl", vinyl_path(@vinyl),
+      method: :delete, turbo_confirm: "Are you sure?",
+      class: "btn btn-danger p-2 m-2") %>
+    </div>
+
+  <h5>Uploaded by: <strong><%= @vinyl.user.first_name %></strong></h5>
+<hr>
+<hr>
+  <h3><strong><%= @vinyl.record_title %></strong>' Bookings</h3>
   <% @vinyl.bookings.sort_by(&:start_date).each_with_index do |booking, i| %>
     <p>booking <%= i + 1 %></p>
     <p>start = <%= booking.start_date %></p>
