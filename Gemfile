@@ -85,3 +85,5 @@ gem 'jquery-rails'
 gem 'flatpickr'
 # image uplaod service
 gem "cloudinary"
+
+gem "pg_search"
