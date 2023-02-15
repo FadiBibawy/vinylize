@@ -1,3 +1,5 @@
+
+=======
 <%# <h2>hello</h2> %>
 <div class="container my-3">
   <%= form_with url: vinyls_path, method: :get, class: "d-flex" do %>
@@ -29,6 +31,7 @@
             <% if vinyl.photo.key %>
               <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "card-img-top" %>
             <% end %>
+
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
               <%= link_to "Book Vinyl", new_vinyl_booking_path(vinyl), class: "btn btn-success shadow rounded"%>
@@ -42,5 +45,4 @@
           </div>
       <% end %>
 </div>
-
 
