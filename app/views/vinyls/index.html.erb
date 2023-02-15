@@ -22,6 +22,7 @@
 
     <div class="row d-flex justify-content-between">
       <% @vinyls.each do |vinyl| %>
+
           <div class="card col-lg-4 col-md-6">
             <div class="card-body">
             <h5 class="card-title"><%= link_to vinyl.record_title, vinyl_path(vinyl) %></h5>
@@ -41,3 +42,5 @@
           </div>
       <% end %>
 </div>
+
+
