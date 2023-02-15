@@ -2,7 +2,13 @@ class VinylsController < ApplicationController
   before_action :set_vinyl, except: [:index, :new, :create]
 
   def index
-    @vinyls = Vinyl.all
+
+
+    if params[:query].present?
+      @vinyls = Vinyl.global_search(params[:query])
+    else
+      @vinyls = Vinyl.all
+    end
   end
 
   def show
@@ -28,7 +34,11 @@ class VinylsController < ApplicationController
 
   def update
     @vinyl.update(vinyl_params)
-    redirect_to vinyl_path(@vinyl), status: :unprocessable_entity
+    if @vinyl.update(vinyl_params)
+      redirect_to vinyl_path(@vinyl)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -47,9 +57,3 @@ class VinylsController < ApplicationController
     @vinyl = Vinyl.find(params[:id])
   end
 end
-
-# /vinyls
-# /vinyls/:id
-# /vinyls/new
-# /vinyls/:id/edit
-# /vinyls/:id
