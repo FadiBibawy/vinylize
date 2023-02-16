@@ -18,13 +18,18 @@ img_urls = [
   "https://images.unsplash.com/photo-1514846160150-2cfb150b48ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=393&q=80",
   "https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=813&q=80"
 ]
+
 quality = ["good", "very good", "fair", "not bad"]
-Vinyl.destroy_all
+
+# Vinyl.destroy_all
+puts "Starting the seed!"
 img_urls.each_with_index do |img_url, index|
   file = URI.open(img_url)
   vinyl = Vinyl.new(artist: "Artist #{index + 1}", release_year: rand(1950..2010), quality: quality.sample,
                     record_title: "Record title #{index + 1}", price_per_day: rand(8.5..32.25).round(2))
   vinyl.photo.attach(io: file, filename: "#{rand(1.5..3.0)}image.png", content_type: "image/png")
-  vinyl.user = User.last
+  vinyl.user = User.all.sample
   vinyl.save
+  puts "#{vinyl.record_title.capitalize} created successfully!"
 end
+puts "All Vinyls created!"
