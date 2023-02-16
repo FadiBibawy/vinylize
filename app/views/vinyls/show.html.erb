@@ -35,13 +35,29 @@
     </div>
   </div>
 </div>
-<hr>
-  <h3 class="text-center mt-3"><strong><%= @vinyl.record_title %></strong>' Bookings</h3>
-  <% @vinyl.bookings.sort_by(&:start_date).each_with_index do |booking, i| %>
-    <p>booking <%= i + 1 %></p>
-    <p>start = <%= booking.start_date %></p>
-    <p>end = <%= booking.end_time %></p>
-    <hr>
-  <% end %>
 
+  <h3 class="text-center mt-4 mb-4"><strong><%= @vinyl.record_title %></strong>'s Bookings</h3>
+  <div class="container mt-4">
+  <div class="row">
+  <% @vinyl.bookings.sort_by(&:start_date).each_with_index do |booking, i| %>
+    <div class="col-md-6 mb-3">
+          <div class="card">
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Booking:</strong> <%= i + 1 %></li>
+            <li class="list-group-item"><strong>From:</strong> <%= booking.start_date %></li>
+            <li class="list-group-item"><strong>To:</strong> <%= booking.end_time %></li>
+            <li class="list-group-item"><strong>Around:</strong> <%= (booking.end_time - booking.start_date).to_i %> Day(s)</li>
+          <hr style="display:none">
+          </ul>
+            <%= button_to("Delete", booking_path(booking),
+            method: :delete, turbo_confirm: "Are you sure?",
+            class: "btn btn-danger mt-3") %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+  </div>
+</div>
 </div>
