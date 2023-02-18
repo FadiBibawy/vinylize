@@ -1,5 +1,6 @@
+
 <div class="container">
-<H1>Dashboard</H1>
+  <H1>Dashboard</H1>
   <%= link_to "Go to All Vinyls💿", vinyls_path %>
 <div class="container">
   <hr>
@@ -26,30 +27,47 @@
 
 
 
+<section class="wrapper">
 
 <div class="container row">
 
   <div class="uploaded col-lg-8 col-md-6 col-sm-6">
     <h4>My Uploaded Vinyls</h4>
 
-    <div class="row d-flex justify-content-around">
+    <div class="row">
       <% @vinyls.each do |vinyl|%>
         <%# <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');"> %>
 
-        <div class="card col-lg-4 col-md-6 p-1 mb-5">
-          <% if vinyl.photo.key %>
-            <a href="<%= vinyl_path(vinyl) %>">  <%= cl_image_tag vinyl.photo.key,height: 300,crop: :fill, class:"card-img", style:"background-image" %></a>
-          <% end %>
-          <div class="card-body">
-            <h4 class="card-title"><%= link_to vinyl.record_title, vinyl_path(vinyl)%></h4>
-            <p class="card-text">Card text</p>
-            <%= link_to "See Vinyl", vinyl_path(vinyl), class:"btn btn-primary"%>
+        <%# <div class="card col-lg-4 col-md-6 p-1 mb-5"> %>
+
+
+
+          <div class="col-lg-4 col-md-6">
+              <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(vinyl.photo) %>);">
+
+                <div class="card-img-overlay d-flex flex-column">
+                  <div class="card-body">
+                    <small class="card-meta mb-2"><%= vinyl.release_year %></small>
+                    <h4 class="card-title mt-0 "><a class="text-white" herf="#"><%= vinyl.record_title.capitalize %></a></h4>
+                  </div>
+                  <div class="card-footer">
+                    <div class="media">
+                      <img class="mr-3 rounded-circle" src="https://i.etsystatic.com/17022527/r/il/190fec/3134147941/il_794xN.3134147941_a6ar.jpg" alt="Generic placeholder image" style="max-width:50px">
+                      <div class="media-body">
+                        <h5 class="my-0 text-white d-block"><strong><%= vinyl.artist.capitalize %></strong></h5>
+                        <small>Quality: <%= vinyl.quality %></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <%= link_to '', vinyl_path(vinyl), class: 'card-link'  %>
+              </div>
           </div>
-        </div>
       <% end %>
     </div>
-
   </div>
+
+
 
 
   <div class="bookings col-lg-4 col-md-6 col-sm-6 border-start">
@@ -66,263 +84,5 @@
     </ul>
 
   </div>
-</div>
-
-
-
-<section class="wrapper">
-  <div class="container">
-
-  <div class="row">
- <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-  <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-        <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-          <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-            <div class="media">
-            <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-            <div class="media-body">
-              <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-              <small>Director of UI/UX</small>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-
-</div>
-
-</div>
-</section>
-<section class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col text-center mb-5">
-         <h1 class="display-4">Bootstrap 4 Cards With Background Image</h1>
-  <p class="lead">Lorem ipsum dolor sit amet at enim hac integer volutpat maecenas pulvinar. </p>
-      </div>
-    </div>
-  <div class="row">
- <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-        <div class="card-img-overlay d-flex flex-column">
-         <div class="card-body">
-            <small class="card-meta mb-2">Thought Leadership</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-           <small><i class="far fa-clock"></i> October 15, 2020</small>
-          </div>
-          <div class="card-footer">
-           <div class="media">
-  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
-  <div class="media-body">
-    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-     <small>Director of UI/UX</small>
-  </div>
-</div>
-          </div>
-        </div>
-      </div></div>
-
-</div>
-
 </div>
 </section>
