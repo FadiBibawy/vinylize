@@ -23,7 +23,7 @@ img_urls = [
 
 quality = ["good", "very good", "fair", "not bad"]
 
-# Vinyl.destroy_all
+Vinyl.destroy_all
 puts "Starting the seed!"
 img_urls.each_with_index do |img_url, index|
   file = URI.open(img_url)

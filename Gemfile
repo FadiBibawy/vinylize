@@ -22,6 +22,7 @@ gem "jsbundling-rails"
 gem "turbo-rails"
 gem "importmap-rails"
 
+gem 'faker'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"

@@ -18,11 +18,11 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class= "text nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link mr-5" %>
           </li>
-          <li class= "text nav-item">
+          <%# <li class= "text nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <%# </li> %>
 
           <li class="nav-item dropdown">
             <% if current_user.photo.key %>
