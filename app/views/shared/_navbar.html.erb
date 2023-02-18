@@ -33,8 +33,8 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path , class: "dropdown-item" %>
-              <%= button_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
             </div>
+              <%= button_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
           </li>
         <% else %>
           <li class="nav-item">

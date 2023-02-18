@@ -25,28 +25,35 @@
     <div class="row">
       <% @vinyls.each do |vinyl| %>
 
-        <div class="col-lg-4 col-md-6 mb-5 mr-md-4">
+        <div class="col-lg-4 col-md-6">
+              <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(vinyl.photo) %>);">
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title display-6"><%= vinyl.record_title %></h5>
-              <% if vinyl.photo.key %>
-                <%= cl_image_tag vinyl.photo.key, width: 400, height: 300, crop: :fill, class: "card-img-top" %>
-              <% end %>
-
-                <p class="card-text mt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <div class="row">
-                <div class="col-6">
-                  <%= link_to "Book", new_vinyl_booking_path(vinyl), class: "btn btn-success shadow rounded btn-block"%>
+                <div class="card-img-overlay d-flex flex-column">
+                  <div class="card-body">
+                    <small class="card-meta mb-2"><%= vinyl.release_year %></small>
+                    <h4 class="card-title mt-0 "><a class="text-white" herf="#"><%= vinyl.record_title.capitalize %></a></h4>
+                  </div>
+                  <div class="card-footer">
+                    <div class="media">
+                      <img class="mr-3 rounded-circle" src="https://i.etsystatic.com/17022527/r/il/190fec/3134147941/il_794xN.3134147941_a6ar.jpg" alt="Generic placeholder image" style="max-width:50px">
+                      <div class="media-body">
+                        <h5 class="my-0 text-white d-block"><strong><%= vinyl.artist.capitalize %></strong></h5>
+                        <small>Quality: <%= vinyl.quality %></small>
+                        <hr>
+                        <small>Price: <%= vinyl.price_per_day %></small>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6">
-                  <%= link_to "More details", vinyl_path(vinyl), class: "btn btn-primary shadow rounded btn-block" %>
-                </div>
+                <%= link_to '', vinyl_path(vinyl), class: 'card-link'  %>
+                        <div class="row">
+                          <div class="col-6 float-right">
+                            <%= link_to "Book", new_vinyl_booking_path(vinyl), class: "btn btn-success shadow rounded btn-block"%>
+                          </div>
+                        </div>
               </div>
-            </div>
           </div>
-        </div>
       <% end %>
+
     </div>
 </div>
