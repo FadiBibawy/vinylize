@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class= "container-fluid">
 
     <%= link_to dashboard_path, class: "navbar-brand" do %>
       <%# <img src="../../assets/images/vinyl" alt=""> %>
 
-     <p class= "text"  > <%=  image_tag "https://www.furnacemfg.com/wp-content/uploads/2018/12/black_vinyl.jpg"  %>   Dashboard</p>
+      <p class= "text"  > <%=  image_tag "https://www.furnacemfg.com/wp-content/uploads/2018/12/black_vinyl.jpg"  %>   Dashboard</p>
     <% end  %>
     <%# <% if user_signed_in? %>
       <%# <%= button_to('Logout', destroy_user_session_path, method: :delete) %>
@@ -24,7 +24,7 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class= "pic" "container-fluid" "nav-item dropdown" >
             <% if current_user.photo.key %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
