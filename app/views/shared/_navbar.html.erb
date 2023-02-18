@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-  <% if user_signed_in? %>
+
     <%= link_to dashboard_path, class: "navbar-brand" do %>
       <%# <img src="../../assets/images/vinyl" alt=""> %>
+
      <p class= "text"  > <%=  image_tag "https://www.furnacemfg.com/wp-content/uploads/2018/12/black_vinyl.jpg"  %>   Dashboard</p>
-    <% end  %>
     <% end  %>
     <%# <% if user_signed_in? %>
       <%# <%= button_to('Logout', destroy_user_session_path, method: :delete) %>
@@ -19,10 +19,10 @@
         <% if user_signed_in? %>
           <li class= "text nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
-          <%# </li>
+          </li>
           <li class= "text nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
-          <%# </li> %>
+          </li>
 
           <li class="nav-item dropdown">
             <% if current_user.photo.key %>
@@ -33,8 +33,8 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path , class: "dropdown-item" %>
-            </div>
               <%= button_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+            </div>
           </li>
         <% else %>
           <li class="nav-item">

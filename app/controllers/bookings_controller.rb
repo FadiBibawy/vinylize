@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
       @booking.vinyl = @vinyl
       @booking.user = current_user
       @booking.renting_days = @end_chosen_date - @start_chosen_date + 1
-      @booking.total_price = @booking.renting_days * @vinyl.price_per_day
+      @booking.total_price = (@booking.renting_days * @vinyl.price_per_day).round(2)
 
       if @booking.save
         flash[:notice] = "This booking was successfully saved! 🥳"
