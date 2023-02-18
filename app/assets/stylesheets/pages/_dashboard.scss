@@ -2,21 +2,12 @@
   font-size: large;
 }
 
-.card-title {
-  color: red;
-}
-
-
-
-.card-text {
-  color: red;
-}
 
 
 
 body{
   /* Created with https://www.css-gradient.com */
-  background: #23EC55;
+  background: #c6d4c9;
   background: -webkit-radial-gradient(top right, #23EC55, #2D51C1);
   background: -moz-radial-gradient(top right, #23EC55, #2D51C1);
   background: radial-gradient(to bottom left, #23EC55, #2D51C1);
@@ -101,4 +92,14 @@ body{
   }
   @media (max-width: 767px){
 
+  }
+
+
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }

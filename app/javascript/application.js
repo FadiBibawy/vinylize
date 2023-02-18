@@ -5,5 +5,5 @@
 //= require_tree .
 
 import "@hotwired/turbo-rails"
-import "./controllers"
+import "../javascript/controllers"
 import "bootstrap"

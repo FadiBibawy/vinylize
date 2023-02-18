@@ -73,8 +73,8 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # we added this for a try
-  # config.assets.compile = true
+  config.assets.compile = true
 
-  # config.assets.digest = false
+  config.assets.digest = false
 
 end

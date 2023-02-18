@@ -10,7 +10,6 @@ export { application }
 
 
 
-
 // document.addEventListener('DOMContentLoaded', function() {
 //   flatpickr('.your-selector');
 // })
