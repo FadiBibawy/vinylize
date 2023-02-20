@@ -1,7 +1,7 @@
 
 <%# <h2>hello</h2> %>
-<div class="container my-3">
-  <%= form_with url: vinyls_path, method: :get, class: "d-flex" do %>
+<div class="container my-3 ">
+  <%= form_with url: vinyls_path, method: :get, class: "d-flex justify-content-center" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
@@ -9,24 +9,24 @@
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+    <%= link_to 'Offer a new Vinyl', new_vinyl_path, class: "btn btn-primary my-3"  %>
 </div>
 
 
 
-<h2 class="m-3 text-center">List of all Vinyls</h2>
+<h2 class="m-3 text-center my-5 titles">all Vinyls</h2>
 
-  <div class="container">
+  <div class="container d-flex align-items-center justify-content-center">
 
-    <%= link_to 'Offer a new Vinyl', new_vinyl_path, class: "btn btn-primary mb-3"  %>
     <% if @vinyls.empty? %>
       <p class="my-5 text-danger">There is no Vinyl matches your search!</p>
     <% end %>
 
-    <div class="row">
+    <div class="row vw-100">
       <% @vinyls.each do |vinyl| %>
 
-        <div class="col-lg-4 col-md-6">
-              <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(vinyl.photo) %>);">
+        <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(vinyl.photo) %>); ">
 
                 <div class="card-img-overlay d-flex flex-column">
                   <div class="card-body">
