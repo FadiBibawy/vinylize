@@ -15,6 +15,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="text">  <%= link_to "💿", vinyls_path %></div>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class= "text nav-item active">
@@ -24,7 +25,7 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           <%# </li> %>
 
-          <li class= "pic" "container-fluid" "nav-item dropdown" >
+          <li class= "pic container-fluid nav-item dropdown" >
             <% if current_user.photo.key %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>

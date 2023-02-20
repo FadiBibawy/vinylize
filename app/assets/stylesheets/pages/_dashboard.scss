@@ -87,6 +87,7 @@ body{
    .card-img-overlay {
     transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
    background: rgb(35,79,109);
+
   background: linear-gradient(0deg, rgba(35,79,109,0.3785889355742297) 0%, rgba(69,95,113,1) 100%);
   }
   }
@@ -120,7 +121,7 @@ body{
 
 
   :root {
-    --surface-color: #fff;
+    // --surface-color: #fff;
     --curve: 40;
   }
 
@@ -165,8 +166,8 @@ body{
     right: 0;
     z-index: 1;
     border-radius: calc(var(--curve) * 1px);
-    background-color: var(--surface-color);
-    transform: translateY(100%);
+    background: rgb(35,79,109);
+    background: linear-gradient(0deg, rgba(4,69,114,0.5) 0%, rgba(4,69,114,1) 100%);    transform: translateY(100%);
     transition: .2s ease-in-out;
   }
 
@@ -214,7 +215,7 @@ body{
   .cardb__title {
     font-size: 1em;
     margin: 0 0 .3em;
-    color: #6A515E;
+    color: #ff0084;
   }
 
   .cardb__tagline {
@@ -239,4 +240,11 @@ body{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+  }
+
+  .titles {
+    font-family: 'Calligraffitti', cursive;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Klee One', cursive;
+    font-family: 'Rowdies', cursive;
   }

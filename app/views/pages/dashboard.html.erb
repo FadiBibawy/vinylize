@@ -1,21 +1,12 @@
 
 <div class="container">
-  <H1>Dashboard</H1>
-  <%= link_to "Go to All Vinyls💿", vinyls_path %>
-<div class="container">
-  <hr>
-  <ul class="list-group">
+  <%# <H1 class="text-center">Dashboard</H1> %>
 
-  </ul>
-    <br>
-    <br>
-    <br>
-    <hr>
+
+
+  <div class="container">
+  <th></th>
   </div>
-
-<div class="container">
-<th></th>
-</div>
 
 </div>
 
@@ -32,7 +23,7 @@
 <div class="container row">
 
   <div class="uploaded col-lg-8 col-md-6 col-sm-6">
-    <h4 class="mb-5 text-center">My Uploaded Vinyls</h4>
+    <h4 class="mb-5 text-center titles">My Uploaded Vinyls</h4>
 
     <div class="row">
       <% @vinyls.each do |vinyl|%>
@@ -71,7 +62,7 @@
 
 
   <div class="bookings col-lg-4 col-md-6 col-sm-6 border-start">
-    <h4 class="mb-5 text-center">My Bookings 🧾</h4>
+    <h4 class="mb-5 text-center titles">My Bookings 🧾</h4>
 
     <%# <ul class="list-group">
       <% @bookings.each do |booking| %>
@@ -87,7 +78,7 @@
       <% @bookings.each do |booking| %>
         <li>
           <div class="cardb text-center">
-            <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(booking.vinyl.photo) %>);">
+            <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(booking.vinyl.photo) %>); background-size: cover">
 
 
 

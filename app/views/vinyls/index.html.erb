@@ -14,7 +14,7 @@
 
 
 
-<h2 class="m-3 text-center my-5">List of all Vinyls</h2>
+<h2 class="m-3 text-center my-5 titles">all Vinyls</h2>
 
   <div class="container d-flex align-items-center justify-content-center">
 
@@ -26,7 +26,7 @@
       <% @vinyls.each do |vinyl| %>
 
         <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(vinyl.photo) %>);">
+              <div class="card text-white card-has-bg click-col" style="background-image: url(<%= rails_blob_url(vinyl.photo) %>); ">
 
                 <div class="card-img-overlay d-flex flex-column">
                   <div class="card-body">
